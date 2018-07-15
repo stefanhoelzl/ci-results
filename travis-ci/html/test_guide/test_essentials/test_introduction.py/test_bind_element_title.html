@@ -1,0 +1,17 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="pythonpath" href="/" hreflang="py" />
+  <script src="http://localhost:8000/js/vue.js"></script>
+  <script src="http://localhost:8000/js/brython_dist.js"></script>
+</head>
+<body onload="brython(1)">
+<div id="app"></div>
+<script type="text/python">
+  from vue import *
+  class BindElementTitle(VueComponent):
+    title = "TITLE"
+    template = "<div id='withtitle' v-bind:title='title'></div>"
+  app = BindElementTitle('#app')
+</script>
+</body>
+</html>
