@@ -1,0 +1,23 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="pythonpath" href="/" hreflang="py" />
+  <script src="http://localhost:8000/js/vue.js"></script>
+  <script src="http://localhost:8000/js/brython_dist.js"></script>
+</head>
+<body onload="brython(1)">
+<div id="app"></div>
+<script type="text/python">
+  from vue import *
+  class ComponentWithFilter(VueComponent):
+    message = "Message"
+
+    @staticmethod
+    @filters
+    def lower_case(value):
+        return value.lower()
+
+    template = "<div id='content'>{{ message | lower_case }}</div>"
+  app = ComponentWithFilter('#app')
+</script>
+</body>
+</html>
